@@ -2,11 +2,22 @@
   "name": "ygopro-typescript-wrapper",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "type": "module",
   "scripts": {
+    "watch": "rollup -c --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^12.1.4",
+    "@types/node": "^24.0.15",
+    "rollup": "^4.45.1",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "tslib": "^2.8.1"
+  }
 }
