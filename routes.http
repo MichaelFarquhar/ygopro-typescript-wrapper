@@ -1,5 +1,8 @@
+### Get All Cards - RUNNING THIS WILL CRASH VS CODE
+https://db.ygoprodeck.com/api/v7/cardinfo.php
+
 ### Search All Cards With "Magician" in Name
-https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=Magician
+https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=Tyler&misc=yes
 
 ### Random Card
 https://db.ygoprodeck.com/api/v7/randomcard.php?language=en
