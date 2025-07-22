@@ -1,3 +1,15 @@
+import { Card } from "./card";
+import { Meta } from "./general";
+
+export type ResponseCardInfo = {
+  data: Card[]; // Array of Card objects
+};
+
+export type ResponseRandomCard = {
+  data: Card[]; // Array of Card objects
+  meta: Meta; // Metadata about the response
+};
+
 export type ResponseAllCardSets = Array<{
   set_name: string; // "Starter Deck: Yugi"
   set_code: string; // "SDY-046"
