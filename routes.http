@@ -1,0 +1,17 @@
+### Search All Cards With "Magician" in Name
+https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=Magician
+
+### Random Card
+https://db.ygoprodeck.com/api/v7/randomcard.php
+
+### All Card Sets
+https://db.ygoprodeck.com/api/v7/cardsets.php
+
+### Card Set Information
+https://db.ygoprodeck.com/api/v7/cardsetsinfo.php?setcode=SDY-046
+
+### All Card Archetypes
+https://db.ygoprodeck.com/api/v7/archetypes.php
+
+### Check Database Version
+https://db.ygoprodeck.com/api/v7/checkDBVer.php
