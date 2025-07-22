@@ -1,4 +1,5 @@
 import { Languages } from "./types/general";
+import { ResponseRandomCard } from "./types/responses";
 
 export class YGOPro {
   private static BASE_URL = "https://db.ygoprodeck.com/api/v7";
@@ -19,7 +20,7 @@ export class YGOPro {
       });
   }
 
-  public getRandomCard(): any {
+  public getRandomCard = async (): Promise<ResponseRandomCard> => {
     return this.request("randomcard.php");
-  }
+  };
 }

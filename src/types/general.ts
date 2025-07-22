@@ -3,6 +3,9 @@
  */
 export type Languages = "en" | "fr" | "de" | "it" | "pt";
 
+/**
+ * Extra metadata about the response from the API, only used in the Random Card response.
+ */
 export type Meta = {
   generated: string; // "2023-10-01 12:00:00"
   current_rows: number; // 1
