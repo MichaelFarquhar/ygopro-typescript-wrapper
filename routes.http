@@ -2,7 +2,7 @@
 https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=Magician
 
 ### Random Card
-https://db.ygoprodeck.com/api/v7/randomcard.php
+https://db.ygoprodeck.com/api/v7/randomcard.php?language=en
 
 ### All Card Sets
 https://db.ygoprodeck.com/api/v7/cardsets.php
