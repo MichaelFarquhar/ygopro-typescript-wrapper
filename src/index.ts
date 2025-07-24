@@ -1,4 +1,4 @@
-import { ResponseRandomCard } from "./types/responses";
+import { ResponseCheckDBVersion, ResponseRandomCard } from "./types/responses";
 import { YGOPro } from "./YGOPro";
 
 const ygopro = new YGOPro();
@@ -11,3 +11,14 @@ ygopro
   .catch((error: string) => {
     console.error("Error fetching random card:", error);
   });
+
+ygopro.checkDatabaseVersion().then((versionInfo: ResponseCheckDBVersion) => {
+  console.log("Database Version", versionInfo);
+});
+
+// const runTest = async () => {
+//   const randomCardName = await ygopro.getRandomCardName();
+//   console.log("Random Card Name:", randomCardName);
+// };
+
+// runTest();
