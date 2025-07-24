@@ -6,7 +6,12 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "declaration": true,
+    "moduleResolution": "bundler",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "lib": ["esnext"]
   },
   "include": ["src/**/*"]
 }
