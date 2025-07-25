@@ -1,10 +1,10 @@
-import { ResponseCheckDBVersion, ResponseRandomCard } from "./types/responses";
+import { ResponseAllCardSets, ResponseCardArchetypes, ResponseRandomCard } from "./types/responses";
 import { YGOPro } from "./YGOPro";
 
 const ygopro = new YGOPro();
 
 ygopro
-  .getRandomCard()
+  .randomCard()
   .then((card: ResponseRandomCard) => {
     console.log("Random Card:", card.data[0].name);
   })
@@ -12,8 +12,8 @@ ygopro
     console.error("Error fetching random card:", error);
   });
 
-ygopro.checkDatabaseVersion().then((versionInfo: ResponseCheckDBVersion) => {
-  console.log("Database Version", versionInfo);
+ygopro.cardSetInfo({ setCode: "SDY-001" }).then((output: ResponseAllCardSets) => {
+  console.log("Output", output);
 });
 
 // const runTest = async () => {
