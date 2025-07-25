@@ -1,5 +1,5 @@
 import { Languages } from "./types/general";
-import { ParamsCardSetInfo } from "./types/params";
+import { ParamsCardImage, ParamsCardSetInfo } from "./types/params";
 import {
   ResponseAllCardSets,
   ResponseCardArchetypes,
@@ -30,6 +30,25 @@ export class YGOPro {
   }
 
   /**
+   * Returns the URL of a card image based on the provided parameters. As stated in the official documentation, please only pull an image once and then store it locally.
+   * @param options - An object containing the parameters for retrieving the card image.
+   * - `cardId`: The ID of the card to retrieve the image for.
+   * - `imageType`: The type of image to retrieve. Defaults to "full" if not provided.
+   * @returns URL string of the card image.
+   */
+  public imageUrl = async (options: ParamsCardImage): Promise<string> => {
+    const { imageType = "full", cardId } = options;
+
+    const urlMapping = {
+      full: "cards/",
+      small: "cards_small/",
+      cropped: "cards_cropped/",
+    };
+
+    return `https://images.ygoprodeck.com/images/${urlMapping[imageType]}${cardId}.jpg`;
+  };
+
+  /**
    * Retrieves all of the current Yu-Gi-Oh! Card Sets, sorted by A-Z.
    * Response contains the Set Name, Set Code, Number of Cards and TCG Date (Release Date).
    * @returns A promise that resolves to a {@link ResponseAllCardSets}
@@ -40,14 +59,16 @@ export class YGOPro {
 
   /**
    * Retrieves information about a specific card set given its set code.
-   * @param params - An object containing the set code of the card set to retrieve information for.
+   * @param options - An object containing the set code of the card set to retrieve information for.
    * @returns A promise that resolves to a {@link ResponseAllCardSets} containing the details of the card set.
    */
-  public cardSetInfo = async (params: ParamsCardSetInfo): Promise<ResponseAllCardSets> => {
-    if (!params.setCode) {
+  public cardSetInfo = async (options: ParamsCardSetInfo): Promise<ResponseAllCardSets> => {
+    const { setCode } = options;
+
+    if (!setCode) {
       throw new Error("setCode parameter is required");
     }
-    return this.request(`cardsetsinfo.php?setcode=${params.setCode}`);
+    return this.request(`cardsetsinfo.php?setcode=${setCode}`);
   };
 
   /**

@@ -16,6 +16,8 @@ ygopro.cardSetInfo({ setCode: "SDY-001" }).then((output: ResponseAllCardSets) =>
   console.log("Output", output);
 });
 
+// console.log(ygopro.imageUrl({ cardId: "42901635", imageType: "cropped" }));
+
 // const runTest = async () => {
 //   const randomCardName = await ygopro.getRandomCardName();
 //   console.log("Random Card Name:", randomCardName);
