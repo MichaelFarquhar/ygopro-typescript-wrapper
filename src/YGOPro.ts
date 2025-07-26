@@ -1,5 +1,5 @@
 import { Languages } from "./types/general";
-import { ParamsCardImage, ParamsCardSetInfo } from "./types/params";
+import { ParamsCard, ParamsCardImage, ParamsCardSetInfo } from "./types/params";
 import {
   ResponseAllCardSets,
   ResponseCardArchetypes,
@@ -28,6 +28,26 @@ export class YGOPro {
         throw error;
       });
   }
+
+  public cards = async (options: ParamsCard): Promise<any> => {
+    const params =
+      options && Object.keys(options).length
+        ? "?" +
+          Object.entries(options)
+            .map(
+              ([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value as string)}`
+            )
+            .join("&")
+        : "";
+
+    const url = `https://db.ygoprodeck.com/api/v7/cardinfo.php${params}`;
+    return fetch(url)
+      .then((response) => response.json())
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        throw error;
+      });
+  };
 
   /**
    * Returns the URL of a card image based on the provided parameters. As stated in the official documentation, please only pull an image once and then store it locally.
