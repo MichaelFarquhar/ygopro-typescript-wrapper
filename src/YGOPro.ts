@@ -12,12 +12,13 @@ export class YGOPro {
 
   private LANGUAGE = "en";
 
-  constructor(public language: Languages = "en") {
+  constructor(public language: Languages = "en", public useProxy: boolean = true) {
     if (language !== "en") this.LANGUAGE = language;
   }
 
   private request(endpoint: string): any {
-    const url = `${YGOPro.BASE_URL}/${endpoint}${
+    const prefix = this.useProxy ? "/api" : YGOPro.BASE_URL;
+    const url = `${prefix}/${endpoint}${
       endpoint === "cardinfo.php" ? `?language=${this.LANGUAGE}` : ""
     }`;
 
