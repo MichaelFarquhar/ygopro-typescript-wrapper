@@ -70,6 +70,7 @@ export class YGOPro {
   };
 
   /**
+   * @name AllCardSets
    * Retrieves all of the current Yu-Gi-Oh! Card Sets, sorted by A-Z.
    * Response contains the Set Name, Set Code, Number of Cards and TCG Date (Release Date).
    * @returns A promise that resolves to a {@link ResponseAllCardSets}
